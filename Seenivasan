@@ -1,0 +1,24 @@
+from datetime import datetime
+
+def days_between_dates():
+    # Input format: YYYY-MM-DD
+    date_format = "%Y-%m-%d"
+
+    # Prompt user for start and end dates
+    start_date_str = input("Enter the start date (YYYY-MM-DD): ")
+    end_date_str = input("Enter the end date (YYYY-MM-DD): ")
+
+    try:
+        # Convert string inputs to datetime objects
+        start_date = datetime.strptime(start_date_str, date_format)
+        end_date = datetime.strptime(end_date_str, date_format)
+
+        # Calculate the difference in days
+        delta = end_date - start_date
+        print(f"The number of days between {start_date_str} and {end_date_str} is {delta.days} days.")
+
+    except ValueError:
+        print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
+
+# Run the program
+days_between_dates()
